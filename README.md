@@ -6,3 +6,7 @@ Step-1
 
 First we obtain the intensity autocorrelation functions stored as a Unique Indentification Number in the 2D detector after the experiment.This is followed by data fitting using well established poiseuille model to obtain experimental fitting parameters such as flow velocity and diffusion coefficient governed by Stokes-Einstein relationship.
 ![Experiment and model](https://user-images.githubusercontent.com/63168221/102575936-5f33de80-40c2-11eb-93d6-dfca52fd9f24.png)
+
+Step-2
+
+Solving inverse problem of obtaining flow profiles from XPCS data. I used Fourier Mode decomposition method to decompose flow profiles into discrete sets of fourier modes and computing intensity autocorrelation functions numerically. This followed by calculating mean squared error between numerically obtained autocorrelations with experimental data for the entire phase space of grid points. In our case, the solution space consists of 161050 nodes and the flow profile with lowest error is obtained from this phase space through this developed technique.    
