@@ -1,6 +1,6 @@
 # Dynamics of liquids in microchannels using high resolution spectroscopy
 This project studies time-resolved changes using X-ray Photon Correlation Spectroscopy (XPCS), a scattering technique to study the dynamics of condensed matter systems. The aim of this project is to study the behavior of complex fluid flows with nanoparticle spheres in particular, flow velocity profiles from the X-ray data from 2D detector.
-![picture](xpcs.png)
+![xpcs](https://user-images.githubusercontent.com/63168221/102576496-a8386280-40c3-11eb-8e24-ce4d84af2bb4.png)
 
 Step-1
 
