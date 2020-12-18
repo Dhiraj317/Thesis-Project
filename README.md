@@ -9,4 +9,5 @@ First we obtain the intensity autocorrelation functions stored as a Unique Inden
 
 Step-2
 
-Solving inverse problem of obtaining flow profiles from XPCS data. I used Fourier Mode decomposition method to decompose flow profiles into discrete sets of fourier modes and computing intensity autocorrelation functions numerically. This followed by calculating mean squared error between numerically obtained autocorrelations with experimental data for the entire phase space of grid points. In our case, the solution space consists of 161050 nodes and the flow profile with lowest error is obtained from this phase space through this developed technique.    
+Solving inverse problem of obtaining flow profiles from XPCS data. I used Fourier Mode decomposition method to decompose flow profiles into discrete sets of fourier modes and computing intensity autocorrelation functions numerically. This followed by calculating mean squared error between numerically obtained autocorrelations with experimental data for the entire phase space of grid points. In our case, the solution space consists of 161050 nodes and the flow profile with lowest error is obtained from this phase space through this developed technique.  
+![Fourier modes](https://user-images.githubusercontent.com/63168221/102646760-9e017d00-4132-11eb-97c4-99b2e747db81.png)
