@@ -4,7 +4,7 @@ This project studies time-resolved changes using X-ray Photon Correlation Spectr
 XPCS experiments were performed in a small angle X-ray scattering
 (SAXS) geometry at the Coherent Hard X-ray beamline(11-ID) of the Brookhaven
 National Laboratory (BNL), Upton, USA. A double crystal monochromator si(111)
-was used to select 9.6 keV X-rays with a relative bandwidth ![equation]https://latex.codecogs.com/gif.latex?%7B%24%5CDelta%20%5Clambda%24%7D/%7B%24%5Clambda%24%7D%3D10%5E%7B-4%7D%24. The sample
+was used to select 9.6 keV X-rays with a relative bandwidth.The sample
 was placed at a distance of 10.18 m from the detector. The parasitic scattering
 from beam is prevented by position of guard slits, final coherent 
 ux in the sample was 10^11 ph/s. The scattering was recorded with a 2 dimensional (2D) sensor -Eiger
