@@ -4,4 +4,5 @@ This project studies time-resolved changes using X-ray Photon Correlation Spectr
 
 Step-1
 
-First we obtain the intensity autocorrelation functions $g^{(2)}$ stored as a Unique Indentification Number in the 2D detector after the experiment.
+First we obtain the intensity autocorrelation functions stored as a Unique Indentification Number in the 2D detector after the experiment.This is followed by data fitting using well established poiseuille model to obtain experimental fitting parameters such as flow velocity and diffusion coefficient governed by Stokes-Einstein relationship.
+![picture](Experiment and model.png)
