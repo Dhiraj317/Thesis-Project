@@ -4,7 +4,7 @@ This project studies time-resolved fluctuations in speckle patterns using X-ray 
 The important files in this project are:
 * **XPCS_flow_analysis.py** establishes the regions of interest from the meta data of scattering experiments. It contains code for model functions and fitting algorithms towards assessment of flow parameters
 * **Fourier_Modes.py** contains functions for generating flow profiles based on obtaining best parameters at each generation  
-* **Plug_profiles.py** studies flow profiles of pseudo-plastic flows 
+* **Plug_profiles.py** code for establising flow profiles of pseudo-plastic flows and the corresponding intensity autocorrelation functions
 
 # Step-1 - Data aquisition from images taken at different time intervals
 XPCS experiments were performed in a small angle X-ray scattering
