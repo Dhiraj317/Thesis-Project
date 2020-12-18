@@ -16,7 +16,7 @@ from beam was prevented by position of guard slits, final coherent flux in the s
 ![xpcs](https://user-images.githubusercontent.com/63168221/102576496-a8386280-40c3-11eb-8e24-ce4d84af2bb4.png)
 # Step-2 - Experimental intensity autocorrelations with model function
 I obtained the intensity autocorrelation functions, which is basically a measure of disorderness of the system stored as a Unique Indentification Number in the 2D detector after the experiment via autocorrelator algorithm. This was followed by data fitting using poiseuille model in the least squares sense to obtain experimental fitting parameters such as flow velocity and diffusion coefficient governed by Stokes-Einstein relationship.
-![Experiment and model](https://user-images.githubusercontent.com/63168221/102647223-66470500-4133-11eb-96c5-55c822ed98b2.png)
+![Experiment and model](https://user-images.githubusercontent.com/63168221/102661496-f04e9800-414a-11eb-8093-cbefcdd9f106.png)
 # Step-3 - Solving inverse problem of obtaining flow profiles from XPCS data
  I used Fourier Mode decomposition method to decompose flow profiles into discrete sets of fourier modes and computed intensity autocorrelation functions numerically. This was followed by calculating mean squared error between numerically obtained autocorrelations with experimental data for the entire phase space of grid points. In our case, the solution space consists of **161050** nodes and the flow profile with lowest error is obtained from this phase space through this developed technique.
  
