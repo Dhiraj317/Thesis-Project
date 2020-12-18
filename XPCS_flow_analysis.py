@@ -45,13 +45,6 @@ from pyCHX.chx_xpcs_xsvs_jupyter_V1 import *
 from pyCHX.chx_generic_functions import get_qval_qwid_dict,get_roi_mask_qval_qwid_by_shift
 import itertools
 
-
-# In[2]:
-
-
-#%run /home/yuzhang/pyCHX_link/pyCHX/chx_generic_functions.py
-
-
 # In[3]:
 
 
@@ -65,11 +58,6 @@ get_ipython().magic('matplotlib notebook')
 
 
 scat_geometry = 'saxs'  #suport 'saxs', 'gi_saxs', 'ang_saxs' (for anisotropics saxs or flow-xpcs)
-#scat_geometry = 'ang_saxs' 
-#scat_geometry = 'gi_waxs' 
-#scat_geometry = 'gi_saxs'
-
-
 roi_auto = False #True #False #True #if True, will automatically create a roi based on the roi_type ( iso/aniso etc), currently only works for SAXS
 
 
@@ -145,112 +133,19 @@ path = '/XF11ID/analysis/%s/masks/'%CYCLE
 
 
 username      =  getpass.getuser()
-
-
-uid = 'c50a8807' #(scan num: 12159 (Measurement: 10ms 1000fraCoralpor
-uid = 'ab2b703b' #(scan num: 12162 (Measurement: T=0.11 10ms 1000fraCoralpor
-uid = 'e9cc00a4' #(scan num: 12195 (Measurement: T=0.11 10ms 1000fraCoralpor   
-uid = 'd767d284-eb5e-4b61-a446-f9f8d242d630'
-uid = '9327c18b' #(scan num: 12919 (Measurement: making mask for 4M
-uid = '4f25490c' #(scan num: 12918 (Measurement: Series 0.00134s X 1000 -sample: CoralPor xh=1.4 yh=-1.789 Series 0.00134s X 1000 -sample: CoralPor
-uid = '96aff7b4' #(scan num: 12923 (Measurement: Series 0.00134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2 xh=0.8 yh=-1.433 Series 0.00134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2  
-uid = '4f9ad2bc' #(scan num: 12925 (Measurement: Series 0.00134s X 5000 -sample: SiO2 D250nm NP:Tw=1:2 xh=0.8 yh=-1.327 Series 0.00134s X 5000 -sample: SiO2 D250nm NP:Tw=1:2
-uid = '4e7902fb' #(scan num: 12926 (Measurement: Series 0.0134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2 xh=0.8 yh=-1.22 Series 0.0134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2  
-uid = '048b3c39' #(scan num: 12927 (Measurement: Series 0.134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2 xh=0.8 yh=-1.114 Series 0.134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2   
-uid = '8fc303ae' #(scan num: 12928 (Measurement: Series 0.00134s X 500 -sample: SiO2 D250nm NP:Tw=1:2 xh=0.8 yh=-1.008 Series 0.00134s X 500 -sample: SiO2 D250nm NP:Tw=1:2
-uid = '03d3aff2' #(scan num: 12929 (Measurement: Series 0.00134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2 att2: 0.1904 xh=0.8 yh=-0.901 Series 0.00134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2        "
-uid = '8d62684c' #(scan num: 12930 (Measurement: Series 0.00134s X 2000 -sample: SiO2 D250nm NP:Tw=1:2 xh=0.8 yh=-0.794 Series 0.00134s X 2000 -sample: SiO2 D250nm NP:Tw=1:2        "
-uid = 'bccf4825' #(scan num: 12931 (Measurement: Series 0.00134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2 att2: 0.1904 xh=0.8 yh=-0.688 Series 0.00134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2        "
-uid = '704fd88d' #(scan num: 12933 (Measurement: Series 0.00134s X 250 -sample: SiO2 D250nm NP:Tw=1:2 Flow Cell xh=-0.1 yh=-0.582 Series 0.00134s X 250 -sample: SiO2 D250nm NP:Tw=1:2 Flow Cell        "
-uid = '8e4ad0b1' #(scan num: 12934 (Measurement: Series 0.00134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2 Flow Cell xh=-0.1 yh=-0.476 Series 0.00134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2 Flow Cell        "
-print(uid)
 username = 'dnandyala'
-
-
-
 run_two_time  =   False #True 
 run_dose      =   False 
 
-
-# In[9]:
-
-
-uid='e9716a17' #flow-0.5 at center
-uid='b7bf428d' # center(scan num: 13088) (Measurement: Frate=0.25 ul/min xh=-0.35 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='a8a329fa'#center (scan num: 13117) (Measurement: Frate=0.75 ul/min xh=-0.35 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='e0789d35'#count : 1 ['e0789d35'] (scan num: 13038) (Measurement: Frate=1 ul/min xh=-0.35 yh=-1.377 Series 0.00134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2 Flow Cell )
-
-#uid='1928d9b9'#count : 1 ['1928d9b9'] (scan num: 13132) (Measurement: Frate=0.15 ul/min xh=-0.35 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='9a9a572e'#count : 1 ['9a9a572e'] (scan num: 13207) (Measurement: Frate=0.15 ul/min xh=-0.35 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='ad5b1d33'#count : 1 ['ad5b1d33'] (scan num: 13222) (Measurement: Frate=0.35 ul/min xh=-0.35 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-
-
-# In[10]:
-
-
-uid='a8a329fa'#center (scan num: 13117) (Measurement: Frate=0.75 ul/min xh=-0.35 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='ad5b1d33'#count : 1 ['ad5b1d33'] (scan num: 13222) (Measurement: Frate=0.35 ul/min xh=-0.35 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='1928d9b9'#Frate=0.15 ul/min bad data set-Don't run analysis for this UID
-uid='9a9a572e'#count : 1 ['9a9a572e'] (scan num: 13207) (Measurement: Frate=0.15 ul/min xh=-0.35 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='e0789d35'#count : 1 ['e0789d35'] (scan num: 13038) (Measurement: Frate=1 ul/min xh=-0.35 yh=-1.377 Series 0.00134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2 Flow Cell )
-
-
-# In[11]:
-
-
-uid='798649ea'#count : 1 ['798649ea'] (scan num: 13215) (Measurement: Frate=0.35 ul/min xh=-0.7 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='d863fc96'#count : 1 ['d863fc96'] (scan num: 13216) (Measurement: Frate=0.35 ul/min xh=-0.65 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='2b9c32cb'#count : 1 ['2b9c32cb'] (scan num: 13217) (Measurement: Frate=0.35 ul/min xh=-0.6 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='833edaf6'#count : 1 ['833edaf6'] (scan num: 13218) (Measurement: Frate=0.35 ul/min xh=-0.55 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='be3d2c32'#count : 1 ['be3d2c32'] (scan num: 13219) (Measurement: Frate=0.35 ul/min xh=-0.5 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='2a156a24'#count : 1 ['2a156a24'] (scan num: 13220) (Measurement: Frate=0.35 ul/min xh=-0.45 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='745c8091'#count : 1 ['745c8091'] (scan num: 13221) (Measurement: Frate=0.35 ul/min xh=-0.4 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='d7f9efbc'#count : 1 ['d7f9efbc'] (scan num: 13223) (Measurement: Frate=0.35 ul/min xh=-0.3 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='32e5a3a8'#count : 1 ['32e5a3a8'] (scan num: 13224) (Measurement: Frate=0.35 ul/min xh=-0.25 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='1e56220b'#count : 1 ['1e56220b'] (scan num: 13225) (Measurement: Frate=0.35 ul/min xh=-0.2 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='9ee57b56'#count : 1 ['9ee57b56'] (scan num: 13226) (Measurement: Frate=0.35 ul/min xh=-0.15 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='bd942c1b'#count : 1 ['bd942c1b'] (scan num: 13227) (Measurement: Frate=0.35 ul/min xh=-0.1 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='69a0d5b6'#count : 1 ['69a0d5b6'] (scan num: 13228) (Measurement: Frate=0.35 ul/min xh=-0.05 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-uid='25a67326'#count : 1 ['25a67326'] (scan num: 13229) (Measurement: Frate=0.35 ul/min xh=0.0 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-
-
 # In[12]:
-
-
 uid='ad5b1d33'#count : 1 ['ad5b1d33'] (scan num: 13222) (Measurement: Frate=0.35 ul/min xh=-0.35 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
 #uid='e0789d35'#count : 1 ['e0789d35'] (scan num: 13038) (Measurement: Frate=1 ul/min xh=-0.35 yh=-1.377 Series 0.00134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2 Flow Cell )
-#uid='e9716a17'#count : 1 ['e9716a17'] (scan num: 13017) (Measurement: Frate=0.5 ul/min xh=-0.35 yh=-1.377 Series 0.00134s X 1000 -sample: SiO2 D250nm NP:Tw=1:2 Flow Cell )
-#uid='9a9a572e'#count : 1 ['9a9a572e'] (scan num: 13207) (Measurement: Frate=0.15 ul/min xh=-0.35 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-
-
-# In[13]:
-
-
-#uid='9a9a572e'#count : 1 ['9a9a572e'] (scan num: 13207) (Measurement: Frate=0.15 ul/min xh=-0.35 yh=-1.057 Series 0.00134s X 1000 -sample: SiO2 D250 NP:Tw=1:2 flow cell )
-
-
-# In[14]:
-
-
 data_dir0  = create_user_folder(CYCLE, username)
 print( data_dir0 )
 
-
 # In[15]:
-
-
 uid = uid[:8]
 print('The current uid for analysis is: %s...'%uid)
-
-
-# In[16]:
-
-
-#get_last_uids( -1)
-
-
-# In[17]:
-
 
 sud = get_sid_filenames(db[uid])
 for pa in sud[2]:
@@ -280,32 +175,11 @@ uidstr = 'uid=%s'%uid
 
 md = get_meta_data( uid )
 md_blue = md.copy()
-#md_blue
-
-
-# In[20]:
-
-
-#md_blue['detectors'][0]
-#if md_blue['OAV_mode'] != 'none':
-#    cx , cy = md_blue[md_blue['detectors'][0]+'_beam_center_x'], md_blue[md_blue['detectors'][0]+'_beam_center_x']
-#else: 
-#    cx , cy = md_blue['beam_center_x'], md_blue['beam_center_y']
-#print(cx,cy)
-
-
-# In[21]:
-
-
 detectors = sorted(get_detectors(db[uid]))
 print('The detectors are:%s'%detectors)
 if len(detectors) >1:
     md['detector'] = detectors[1]
     print( md['detector'])
-
-
-# In[22]:
-
 
 if md['detector'] =='eiger4m_single_image' or md['detector'] == 'image':    
     reverse= True
@@ -317,9 +191,6 @@ elif md['detector'] =='eiger1m_single_image':
     reverse= True
     rot90=False
 print('Image reverse: %s\nImage rotate 90: %s'%(reverse, rot90))    
-
-
-# In[23]:
 
 
 try:
@@ -362,23 +233,6 @@ else:scat_geometry_ = ['','ang_'][qphi_analysis]+ scat_geometry
 if scat_geometry != 'gi_saxs':run_profile_plot = False     
     
 print(scat_geometry_)    
-
-
-# In[25]:
-
-
-scat_geometry
-
-
-# In[26]:
-
-
-#%run /home/yuzhang/pyCHX_link/pyCHX/chx_generic_functions.py
-
-
-# * get data
-
-# In[27]:
 
 
 imgs = load_data( uid, md['detector'], reverse= reverse, rot90=rot90  )
@@ -451,13 +305,6 @@ if len(detectors)==2:
 print_dict( md,  ['suid', 'number of images', 'uid', 'scan_id', 'start_time', 'stop_time', 'sample', 'Measurement',
                   'acquire period', 'exposure time',  
          'det_distance', 'beam_center_x', 'beam_center_y', ] )
-
-
-# ## Overwrite Some Metadata if Wrong Input
-
-# ### Define incident beam center (also define reflection beam center for gisaxs)
-
-# In[32]:
 
 
 if scat_geometry =='gi_saxs':
@@ -805,15 +652,6 @@ mask_copy = mask.copy()
 mask_copy2 = mask.copy()
 
 avg_img *= mask
-
-
-# In[51]:
-
-
-#%run ~/pyCHX_link/pyCHX/chx_generic_functions.py
-
-
-# In[86]:
 
 
 try:
@@ -1255,13 +1093,6 @@ import time
 #np.save( data_dir + 'norm_SG_per_frame',norm)
 #norm = np.load(  data_dir + 'norm_SG_per_frame.npy'   )
 
-
-# In[123]:
-
-
-#%run -i ~/pyCHX_link/pyCHX/chx_correlationc.py
-
-
 # In[124]:
 
 
@@ -1592,33 +1423,7 @@ def g2_global_fit_general( g2, taus,  function='simple_exponential',sequential_f
                           rings = qval_dict[i][0], regions =  qval_dict[i][1] )
                     pars['rings'].vary = False
                     pars['regions'].vary = False
-                  
-                    
-             
-                
-        #if function=='newflow_qphi':  
-         #   if qval_dict is None:
-          #      print("Please provide qval_dict, a dict with qr and ang (in unit of degrees).")
-           # else:
-            #    pars  = mod.make_params(  
-             #       beta=_beta, flow_velocity=_flow_velocity,
-              #                 Diffusion=_Diffusion, baseline= _baseline, 
-               #     rings = qval_dict[i][0], regions =  qval_dict[i][1] )
-                #pars['rings'].vary = False
-                #pars['regions'].vary = False
-                
-          
-              
-                #pars['beta'].vary = False
-            #if False:
-             #   if isinstance( _beta, (np.ndarray, list) ):
-              #          pars['beta'].value = _guess_val['beta'][i]
-                
-                #pars['beta'].value = _guess_val['beta'][i]
-                
-            #for k in list(pars.keys()):
-                #print(k, _guess_val[k]  )
-            # pars[k].value = _guess_val[k][i]  
+                   
          
         result1 = mod.fit(y, pars, x =lags ) 
         if sequential_fit:
@@ -2061,18 +1866,6 @@ beta = np.array( [ g2_fit_result[i].params['beta'].value for i in range( g2.shap
 baseline= np.array( [ g2_fit_result[i].params['baseline'].value for i in range( g2.shape[1] )])
 
 
-# In[144]:
-
-
-np.mean(Diffusion)
-
-
-# In[145]:
-
-
-np.mean(flow_vel)
-
-
 # In[146]:
 
 
@@ -2187,30 +1980,10 @@ if run_one_time:
     )
 g2glob_fit_paras = save_g2_fit_para_tocsv(g2_globfit_result, filename= uid_+'_g2glob_fit_paras.csv', path=data_dir )
 
-
-# In[156]:
-
-
-fit_g2_func
-
-
 # In[157]:
 
 
 g2_globfit_result[0].best_values['flow_velocity']
-
-
-# In[158]:
-
-
-g2glob_fit.shape
-
-
-# In[159]:
-
-
-g2[1:].shape
-
 
 # In[161]:
 
@@ -2257,372 +2030,9 @@ def get(g2_data,phi,figsize):
         #ax.set_title('$\phi $=%.1f'% regions[index] + '$^\circ $')
         #ax.set_title(r'$g^{(2)}$ in the bulk flow direction')
 
-
-# In[ ]:
-
-
 phi=np.array([0,1,2,3,4,5,6,7,8,9,10,11,12,13,45])
 
-
-# In[ ]:
-
-
 get(g2,phi,figsize=(4.5,10))
-
-
-# In[ ]:
-
-
-#xhrange=np.arange(-0.7,0.05,0.05)
-
-
-# In[265]:
-
-
-Q=0.15 #experimentally measured
-
-
-# In[266]:
-
-
-def get_vel(Q):
-    R=0.4 #inner radius
-    A=np.pi*R**2
-    vel=Q/A*1e-9/(1e-6*60)*1e10 #Avg_vel in A/s 
-    return vel
-
-
-# In[267]:
-
-
-get_vel(Q)
-
-
-# In[268]:
-
-
-g2_globfit_result[0].best_values['flow_velocity']/get_vel(Q)
-
-
-# In[ ]:
-
-
-1e4*80e-3/(3600*np.pi*0.66**2*1e-6) #Q in micro meter/sec
-
-
-# In[ ]:
-
-
-1.6e-3*162386*2
-
-
-# In[ ]:
-
-
-(1.16e5-1.04e5)/1.16e5*100
-
-
-# # For two-time
-
-# In[ ]:
-
-
-if run_four_time:
-    plot_g2_general( g2_dict={1:g4}, taus_dict={1:taus4},vlim=[0.95, 1.05], qval_dict=qval_dict, fit_res= None, 
-                geometry=scat_geometry_,filename=uid_+'_g4',path= data_dir,   ylabel='g4')
-
-
-# # Speckle Visiblity
-
-# In[ ]:
-
-
-if run_xsvs:    
-    max_cts = get_max_countc(FD, roi_mask )    
-    #max_cts = 15 #for eiger 500 K
-    qind, pixelist = roi.extract_label_indices(   roi_mask  )
-    noqs = len( np.unique(qind) )
-    nopr = np.bincount(qind, minlength=(noqs+1))[1:]
-    #time_steps = np.array( utils.geometric_series(2,   len(imgs)   ) )
-    time_steps = [0,1]  #only run the first two levels
-    num_times = len(time_steps)    
-    times_xsvs = exposuretime + (2**(  np.arange( len(time_steps) ) ) -1 ) * timeperframe   
-    print( 'The max counts are: %s'%max_cts )
-
-
-# ### Do historam 
-
-# In[ ]:
-
-
-if run_xsvs:
-    if roi_avg is  None:
-        times_roi, mean_int_sets = cal_each_ring_mean_intensityc(FD, roi_mask, timeperframe = None,  ) 
-        roi_avg = np.average( mean_int_sets, axis=0)
-    
-    t0=time.time()
-    spec_bins, spec_his, spec_std, spec_sum  =  xsvsp( FD, np.int_(roi_mask), norm=None,
-                max_cts=int(max_cts+2),  bad_images=bad_frame_list, only_two_levels=True )    
-    spec_kmean =  np.array(  [roi_avg * 2**j for j in  range( spec_his.shape[0] )] )
-    run_time(t0)
-    spec_pds =  save_bin_his_std( spec_bins, spec_his, spec_std, filename=uid_+'_spec_res.csv', path=data_dir ) 
-
-
-# ### Do historam fit by negtive binominal function with maximum likehood method
-
-# In[ ]:
-
-
-if run_xsvs:    
-    ML_val, KL_val,K_ = get_xsvs_fit(  spec_his, spec_sum, spec_kmean, 
-                        spec_std, max_bins=2, fit_range=[1,60], varyK= False  )
-    #print( 'The observed average photon counts are: %s'%np.round(K_mean,4))
-    #print( 'The fitted average photon counts are: %s'%np.round(K_,4)) 
-    print( 'The difference sum of average photon counts between fit and data are: %s'%np.round( 
-            abs(np.sum( spec_kmean[0,:] - K_ )),4))
-    print( '#'*30)
-    qth=   0 
-    print( 'The fitted M for Qth= %s are: %s'%(qth, ML_val[qth]) )
-    print( K_[qth])
-    print( '#'*30)
-
-
-# ## Plot fit results
-
-# In[ ]:
-
-
-if run_xsvs:   
-    qr = [qval_dict[k][0] for k in list(qval_dict.keys()) ]
-    plot_xsvs_fit(  spec_his, ML_val, KL_val, K_mean = spec_kmean, spec_std=spec_std,
-                  xlim = [0,10], vlim =[.9, 1.1],
-        uid=uid_, qth= qth_interest, logy= True, times= times_xsvs, q_ring_center=qr, path=data_dir)
-    
-    plot_xsvs_fit(  spec_his, ML_val, KL_val, K_mean = spec_kmean, spec_std = spec_std,
-                  xlim = [0,15], vlim =[.9, 1.1],
-        uid=uid_, qth= None, logy= True, times= times_xsvs, q_ring_center=qr, path=data_dir )
-
-
-# ### Get contrast
-
-# In[ ]:
-
-
-if run_xsvs:
-    contrast_factorL = get_contrast( ML_val)
-    spec_km_pds = save_KM(  spec_kmean, KL_val, ML_val, qs=qr, level_time=times_xsvs, uid=uid_, path = data_dir )
-    #spec_km_pds
-
-
-# ### Plot contrast with g2 results
-
-# In[ ]:
-
-
-if run_xsvs:    
-    plot_g2_contrast( contrast_factorL, g2b, times_xsvs, tausb, qr, 
-                     vlim=[0.8,1.2], qth = qth_interest, uid=uid_,path = data_dir, legend_size=14)
-
-    plot_g2_contrast( contrast_factorL, g2b, times_xsvs, tausb, qr, 
-                     vlim=[0.8,1.2], qth = None, uid=uid_,path = data_dir, legend_size=4)
-
-
-# In[ ]:
-
-
-#from chxanalys.chx_libs import cmap_vge, cmap_albula, Javascript
-
-
-# # Export Results to a HDF5 File
-
-# In[ ]:
-
-
-md['mask_file']= mask_path + mask_name
-md['roi_mask_file']= fp
-md['mask'] = mask
-#md['NOTEBOOK_FULL_PATH'] =  data_dir + get_current_pipeline_fullpath(NFP).split('/')[-1]
-md['good_start'] = good_start
-md['bad_frame_list'] = bad_frame_list
-md['avg_img'] = avg_img
-md['roi_mask'] = roi_mask
-md['setup_pargs'] = setup_pargs
-if scat_geometry == 'gi_saxs':        
-    md['Qr'] = Qr
-    md['Qz'] = Qz
-    md['qval_dict'] = qval_dict
-    md['beam_center_x'] =  inc_x0
-    md['beam_center_y']=   inc_y0
-    md['beam_refl_center_x'] = refl_x0
-    md['beam_refl_center_y'] = refl_y0
-
-
-elif scat_geometry == 'gi_waxs':
-    md['beam_center_x'] =  center[1]
-    md['beam_center_y']=  center[0]
-else:
-    md['qr']= qr
-    #md['qr_edge'] = qr_edge
-    md['qval_dict'] = qval_dict
-    md['beam_center_x'] =  center[1]
-    md['beam_center_y']=  center[0]            
-
-md['beg'] = FD.beg
-md['end'] = FD.end
-md['qth_interest'] = qth_interest
-md['metadata_file'] = data_dir + 'uid=%s_md.pkl'%uid
-psave_obj(  md, data_dir + 'uid=%s_md.pkl'%uid ) #save the setup parameters
-save_dict_csv( md,  data_dir + 'uid=%s_md.csv'%uid, 'w')
-
-
-###############Only work for Randy
-try:
-    md['beg_OneTime'] = good_start_g2
-    md['end_OneTime'] = good_end_g2
-    print(md['beg_OneTime'])
-    print(md['end_OneTime'])
-except:
-    pass
-################################
-
-
-
-Exdt = {} 
-if scat_geometry == 'gi_saxs':  
-    for k,v in zip( ['md', 'roi_mask','qval_dict','avg_img','mask','pixel_mask', 'imgsum', 'bad_frame_list', 'qr_1d_pds'], 
-                [md,    roi_mask, qval_dict, avg_img,mask,pixel_mask, imgsum, bad_frame_list, qr_1d_pds] ):
-        Exdt[ k ] = v
-elif scat_geometry == 'saxs': 
-    for k,v in zip( ['md', 'q_saxs', 'iq_saxs','iqst','qt','roi_mask','qval_dict','avg_img','mask','pixel_mask', 'imgsum', 'bad_frame_list'], 
-                [md, q_saxs, iq_saxs, iqst, qt,roi_mask, qval_dict, avg_img,mask,pixel_mask, imgsum, bad_frame_list] ):
-        Exdt[ k ] = v
-elif scat_geometry == 'gi_waxs': 
-    for k,v in zip( ['md', 'roi_mask','qval_dict','avg_img','mask','pixel_mask', 'imgsum', 'bad_frame_list'], 
-                [md,       roi_mask, qval_dict, avg_img,mask,pixel_mask, imgsum, bad_frame_list] ):
-        Exdt[ k ] = v
-        
-if run_waterfall:Exdt['wat'] =  wat
-if run_t_ROI_Inten:Exdt['times_roi'] = times_roi;Exdt['mean_int_sets']=mean_int_sets
-if run_one_time:
-    if run_invariant_analysis:
-        for k,v in zip( ['taus','g2','g2_fit_paras', 'time_stamp','invariant'], [taus,g2,g2_fit_paras,time_stamp,invariant] ):Exdt[ k ] = v
-    else:
-        for k,v in zip( ['taus','g2','g2_fit_paras'  ], [taus,g2,g2_fit_paras ] ):Exdt[ k ] = v
-            
-if run_two_time:
-    for k,v in zip( ['tausb','g2b','g2b_fit_paras', 'g12b'], [tausb,g2b,g2b_fit_paras,g12b] ):Exdt[ k ] = v
-    #for k,v in zip( ['tausb','g2b','g2b_fit_paras', ], [tausb,g2b,g2b_fit_paras] ):Exdt[ k ] = v    
-if run_dose:
-    for k,v in zip( [ 'taus_uids', 'g2_uids' ], [taus_uids, g2_uids] ):Exdt[ k ] = v
-if run_four_time:
-    for k,v in zip( ['taus4','g4'], [taus4,g4] ):Exdt[ k ] = v
-if run_xsvs:
-    for k,v in zip( ['spec_kmean','spec_pds','times_xsvs','spec_km_pds','contrast_factorL'], 
-                   [ spec_kmean,spec_pds,times_xsvs,spec_km_pds,contrast_factorL] ):Exdt[ k ] = v 
-
-
-# In[ ]:
-
-
-export_xpcs_results_to_h5( 'uid=%s_%s_Res.h5'%(md['uid'],q_mask_name), data_dir, export_dict = Exdt )
-#extract_dict = extract_xpcs_results_from_h5( filename = 'uid=%s_Res.h5'%md['uid'], import_dir = data_dir )
-
-
-# In[ ]:
-
-
-#g2npy_filename =  data_dir  + '/' + 'uid=%s_g12b.npy'%uid
-#print(g2npy_filename)
-#if os.path.exists( g2npy_filename):
-#    print('Will delete this file=%s.'%g2npy_filename)
-#    os.remove( g2npy_filename  )
-
-
-# In[ ]:
-
-
-#extract_dict = extract_xpcs_results_from_h5( filename = 'uid=%s_Res.h5'%md['uid'], import_dir = data_dir )
-
-
-# In[ ]:
-
-
-#extract_dict = extract_xpcs_results_from_h5( filename = 'uid=%s_Res.h5'%md['uid'], import_dir = data_dir )
-
-
-# # Creat PDF Report
-
-# In[ ]:
-
-
-pdf_out_dir = os.path.join('/XF11ID/analysis/', CYCLE, username, 'Results/')
-
-pdf_filename = "XPCS_Analysis_Report2_for_uid=%s%s%s.pdf"%(uid,pdf_version,q_mask_name)
-if run_xsvs:
-    pdf_filename = "XPCS_XSVS_Analysis_Report_for_uid=%s%s%s.pdf"%(uid,pdf_version,q_mask_name)
-
-
-# In[ ]:
-
-
-#%run /home/yuzhang/pyCHX_link/pyCHX/Create_Report.py
-
-
-# In[ ]:
-
-
-make_pdf_report( data_dir, uid, pdf_out_dir, pdf_filename, username, 
-                    run_fit_form,run_one_time, run_two_time, run_four_time, run_xsvs, run_dose,
-                report_type= scat_geometry, report_invariant= run_invariant_analysis,
-               md = md )
-
-
-# ## Attach the PDF report to Olog 
-
-# In[ ]:
-
-
-#%run  /home/yuzhang/chxanalys_link/chxanalys/chx_olog.py
-
-
-# In[ ]:
-
-
-if att_pdf_report:
-    lops=0
-    while lops<5:
-        try:
-            os.environ['HTTPS_PROXY'] = 'https://proxy:8888'
-            os.environ['no_proxy'] = 'cs.nsls2.local,localhost,127.0.0.1'
-            update_olog_uid_with_file( uid[:6], text='Add XPCS Analysis PDF Report', 
-                              filename=pdf_out_dir + pdf_filename, append_name='_R1' )
-            lops=5
-        except:
-            print("Failed to attach PDF report to Olog...try again in 10s")
-            time.sleep(10)
-            lops+=1
-            if lops == 5:
-                print("Failed final attempt to attach PDF to Olog!")
-
-
-# ## Save the OVA image
-
-# In[ ]:
-
-
-#save_oavs= False #True
-
-
-# In[ ]:
-
-
-if save_oavs:
-    os.environ['HTTPS_PROXY'] = 'https://proxy:8888'
-    os.environ['no_proxy'] = 'cs.nsls2.local,localhost,127.0.0.1'
-    update_olog_uid_with_file( uid[:6], text='Add OVA images', 
-                              filename= data_dir + 'uid=%s_OVA_images.png'%uid, append_name='_img' )
-       # except:
-
 
 # # The End!
 
